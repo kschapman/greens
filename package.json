@@ -1,0 +1,30 @@
+{
+  "name": "greens",
+  "version": "1.0.0",
+  "description": "Green Party climate change visualisations",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kschapman/greens.git"
+  },
+  "keywords": [
+    "Green",
+    "New",
+    "Zealand",
+    "climate",
+    "change"
+  ],
+  "author": "Amy, Kenneth, Massey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kschapman/greens/issues"
+  },
+  "homepage": "https://github.com/kschapman/greens#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "jquery": "^3.2.1"
+  }
+}
