@@ -1,0 +1,52 @@
+// Variables
+$full:100%;
+$null:0px;
+$testColor:purple;
+
+// Standard CSS Reset
+body, html{
+	padding:$null;
+	margin:$null;
+	overflow-x:hidden;
+}
+
+*{
+	float:left;
+	box-sizing:border-box;
+	margin:$null;
+	padding:$null;
+}
+
+// All encompassing container
+#wrapper{
+	position:absolute;
+	width:100vw;
+	min-height:10px;
+	background-color:$testColor;
+}
+
+// Nav Styling
+#nav{
+	width:$full;
+	min-height:10px;
+	background-color:#FFF;
+}
+
+// Creating our Divisions
+.section-container{
+	width:$full;
+	height:100vh;
+	position:relative;
+}
+
+#home{
+	background-color:black;
+}
+
+#about{
+	background-color:red;
+}
+
+#contact{
+	background-color:blue;
+}
