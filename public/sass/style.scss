@@ -1,7 +1,18 @@
 // Variables
 $full:100%;
 $null:0px;
-$testColor:purple;
+$green:rgb(21, 169, 45);
+
+// Mixins
+@mixin background-img{
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:cover;
+}
+
+@mixin timing{
+	transition:1s;
+}
 
 // Standard CSS Reset
 body, html{
@@ -15,6 +26,7 @@ body, html{
 	box-sizing:border-box;
 	margin:$null;
 	padding:$null;
+	font-family:"Arial", sans-serif;
 }
 
 // All encompassing container
@@ -22,14 +34,67 @@ body, html{
 	position:absolute;
 	width:100vw;
 	min-height:10px;
-	background-color:$testColor;
 }
 
 // Nav Styling
 #nav{
+	position:fixed;
 	width:$full;
 	min-height:10px;
 	background-color:#FFF;
+	z-index:1;
+	padding:20px;
+
+	#logo-container{
+		@include background-img;
+		width:75px;
+		height:75px;
+		border-radius:50px;
+		background-image:url("../img/greens-logo.jpg");
+	}
+
+	//default button
+	a{
+		color:$green;
+		text-align:center;
+	}
+
+	#presentation{
+		border-radius:100px;
+		background-color:$green;
+		margin:$null !important;
+		width:50px;
+	}
+
+	i{
+		font-size:16px;
+		margin-bottom:$null;
+		color:#FFFFFF;
+	}
+
+	.btn, i{
+		float:right !important;
+		cursor:pointer;
+		display:block;
+		font-size:16px;
+		font-weight:300;
+		line-height:45px;
+		margin-top:20px;
+		margin-left:30px;
+		max-width:100px;
+		position:relative;
+		text-decoration:none;
+		text-transform:uppercase;
+		vertical-align:middle;
+		width:100%;
+		@include timing;
+	}
+
+	.btn:hover{
+		@include timing;
+		letter-spacing:2px;
+		border-bottom:1px $green solid;
+	}
 }
 
 // Creating our Divisions
@@ -39,14 +104,17 @@ body, html{
 	position:relative;
 }
 
+// Massey CSS
 #home{
-	background-color:black;
+	background-color:$green;
 }
 
+// Kenneth CSS
 #about{
 	background-color:red;
 }
 
+// Amy CSS
 #contact{
 	background-color:blue;
 }
