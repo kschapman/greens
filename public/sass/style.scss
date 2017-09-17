@@ -72,7 +72,7 @@ body, html{
 		color:#FFFFFF;
 	}
 
-	.btn, i{
+	.btn, .present, i{
 		float:right !important;
 		cursor:pointer;
 		display:block;
@@ -88,6 +88,10 @@ body, html{
 		vertical-align:middle;
 		width:100%;
 		@include timing;
+	}
+
+	.present{
+		max-width:50px;
 	}
 
 	.btn:hover{
@@ -107,6 +111,14 @@ body, html{
 // Massey CSS
 #home{
 	background-color:$green;
+
+	#chart-container{
+		position:absolute;
+		width:100vw;
+		height:$full;
+		bottom:0px;
+		z-index:23;
+	}
 }
 
 // Kenneth CSS
