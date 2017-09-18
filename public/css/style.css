@@ -1,6 +1,7 @@
 body, html {
   padding: 0px;
   margin: 0px;
+  font-family: 'Quicksand', sans-serif;
   overflow-x: hidden; }
 
 * {
@@ -79,9 +80,64 @@ body, html {
     transform: translate(-50%, -50%); }
 
 #about {
-  background-color: red; }
+  background-color: white;
+  max-width: 1024px;
+  margin: 0 auto;
+  margin-top: 50px; }
 
 #contact {
   background-color: blue; }
+
+.james-info {
+  float: left;
+  width: 70%; }
+
+.james-pic {
+  width: 150px;
+  height: 150px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 50%; }
+
+.james-heading {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #15A92D; }
+
+.james-media {
+  float: left;
+  clear: both;
+  margin-left: 30px; }
+
+.media-link {
+  width: 20px;
+  margin-right: 15px; }
+
+.instagram {
+  margin-right: 32px; }
+
+.james-text {
+  padding: 10px;
+  font-size: 14px; }
+
+.tweets {
+  float: left;
+  padding-left: 2%;
+  padding-right: 2%;
+  width: 26%; }
+
+.tweet-font {
+  font-size: 14px; }
+
+.tweets-heading {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #15A92D; }
+
+#twitter-feed {
+  height: 80vh;
+  overflow-y: scroll; }
 
 /*# sourceMappingURL=style.css.map */

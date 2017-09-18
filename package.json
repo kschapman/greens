@@ -24,9 +24,12 @@
   },
   "homepage": "https://github.com/kschapman/greens#readme",
   "dependencies": {
+    "cors": "^2.8.4",
     "express": "^4.15.4",
     "grunt": "^1.0.1",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "path": "^0.12.7",
+    "twit": "^2.2.9"
   },
   "devDependencies": {
     "grunt-contrib-cssmin": "^2.2.1",
