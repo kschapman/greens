@@ -10,10 +10,7 @@ app.use(function(request, response, next){
 	next();
 });
 
-app.use(express.static("./public"));
-app.use('/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
-app.use('/config', express.static(path.join(__dirname)));
-
+//----------------------------KENNETH--------------------------
 var T = new Twit({
   consumer_key:         config.TConsumerKey,
   consumer_secret:      config.TConsumerKeySecret,
@@ -23,12 +20,11 @@ var T = new Twit({
 
 var app = express();
 
-// Finding specific files for connection
 app.use(cors());
+
 app.use(express.static("./public"));
-
-app.use("/js", express.static(path.join(__dirname, "node_modules/jquery/dist")));
-
+app.use('/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
+app.use('/config', express.static(path.join(__dirname)));
 
 app.get("/tweets.json", function(request, response) {
   var params = { user_id: '31583101', count: 20 };
@@ -38,6 +34,7 @@ app.get("/tweets.json", function(request, response) {
     }
   });
 });
+//----------------------------KENNETH--------------------------
 
 app.listen(3000);
 

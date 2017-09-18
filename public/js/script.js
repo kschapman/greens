@@ -1,3 +1,6 @@
+//----------------------------KENNETH--------------------------
+console.log("here");
+
 $.ajax({
 	url:"http://localhost:3000/tweets.json",
 	dataType:"json",
@@ -12,3 +15,4 @@ $.ajax({
 		console.log("somthing wrong");
 	}
 });
+//----------------------------KENNETH--------------------------
