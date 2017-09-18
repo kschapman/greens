@@ -73,11 +73,10 @@ body, html {
 #home {
   background-color: #15a92d; }
   #home #chart-container {
-    position: absolute;
-    width: 100vw;
-    height: 100%;
-    bottom: 0px;
-    z-index: 23; }
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
 
 #about {
   background-color: red; }
