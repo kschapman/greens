@@ -18,6 +18,7 @@ app.use(express.static("./public"));
 app.use('/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
 app.use('/config', express.static(path.join(__dirname)));
 
+//----------------------------KENNETH--------------------------
 var T = new Twit({
   consumer_key:         config.TConsumerKey,
   consumer_secret:      config.TConsumerKeySecret,

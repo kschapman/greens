@@ -1,4 +1,5 @@
-// Massey JS
+// ------------------- MASSEY STARTING HERE -------------------------
+
 // NAMING AND CALLING VARIABLES
 var startingYear = 1920,
     endingYear = 1939;
@@ -75,7 +76,7 @@ $(document).on('click', 'a[href^="#"]', function(e){
     $('body, html').animate({scrollTop: pos});
 });
 
-// This is the d3 graph
+// THIS IS THE D3 GRAPH
 function runGraph(){
   console.log(climateData)
   var CurrentColor;
@@ -166,7 +167,7 @@ function runGraph(){
     console.log(barData[i]);
   }
 
-  // Vertical Axis
+  // THIS IS THE VERTICAL AXIS FOR THE D3 GRAPH
   var VGuideScale = d3.scaleLinear()
     .domain([0, d3.max(barData)])
     .range([height, 0])
@@ -193,6 +194,10 @@ function runGraph(){
 }
 
 // Kenneth JS
+//----------------------------KENNETH--------------------------
+console.log("here");
+
+
 $.ajax({
 	url:"http://localhost:3000/tweets.json",
 	dataType:"json",
@@ -206,4 +211,7 @@ $.ajax({
 	error: function(){
 		console.log("somthing wrong");
 	}
+
 });
+//----------------------------KENNETH--------------------------
+

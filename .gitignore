@@ -2,4 +2,4 @@
 .DS_Store
 /public/css
 /.sass-cache
-/config.json
+config.json
