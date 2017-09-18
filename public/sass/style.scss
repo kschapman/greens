@@ -12,8 +12,8 @@ body, html{
 }
 
 *{
-	float:left;
-	box-sizing:border-box;
+	// float:left;
+	// box-sizing:border-box;
 	margin:$null;
 	padding:$null;
 }
@@ -23,7 +23,7 @@ body, html{
 	position:absolute;
 	width:100vw;
 	min-height:10px;
-	background-color:$testColor;
+	// background-color:$testColor;
 }
 
 // Nav Styling
