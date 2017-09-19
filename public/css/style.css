@@ -32,17 +32,18 @@ body, html {
     border-radius: 50px;
     background-image: url("../img/greens-logo.jpg"); }
   #nav a {
-    color: #15a92d;
+    color: #00c760;
     text-align: center; }
   #nav #presentation {
     border-radius: 100px;
-    background-color: #15a92d;
+    background-color: #00c760;
     margin: 0px !important;
     width: 50px; }
   #nav i {
     font-size: 16px;
     margin-bottom: 0px;
-    color: #FFFFFF; }
+    color: #FFFFFF;
+    text-align: center; }
   #nav .btn, #nav .present, #nav i {
     float: right !important;
     cursor: pointer;
@@ -64,7 +65,7 @@ body, html {
   #nav .btn:hover {
     transition: 1s;
     letter-spacing: 2px;
-    border-bottom: 1px #15a92d solid; }
+    border-bottom: 1px #00c760 solid; }
 
 .section-container {
   width: 100%;
@@ -72,12 +73,22 @@ body, html {
   position: relative; }
 
 #home {
-  background-color: #15a92d; }
+  background-color: #00c760; }
   #home #chart-container {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); }
+    position: absolute;
+    height: 85%;
+    width: 66.6%;
+    margin: 15px;
+    bottom: 0px; }
+  #home #chart-info {
+    position: absolute;
+    float: right;
+    right: 0px;
+    margin: 15px;
+    width: 33.3%;
+    height: 85%;
+    bottom: 0px;
+    background-color: purple; }
 
 #about {
   background-color: white;
@@ -104,7 +115,7 @@ body, html {
 .james-heading {
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #15A92D;
+  color: #00c760;
   float: none; }
 
 .james-media {
@@ -140,7 +151,7 @@ body, html {
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
-  color: #15A92D;
+  color: #00c760;
   float: none; }
 
 #twitter-feed {

@@ -2,21 +2,22 @@
 
 // NAMING AND CALLING VARIABLES
 var startingYear = 1920,
-    endingYear = 1939;
+    endingYear = 1939,
+    finalSet = 9;
 
 var climateData = [];
 
 // LOOPING AND CALLING THE SAME FUNCTION, THE YEAR INCREMENTS BY 20 TO CHANGE THE URL
 // REQUEST.
-for (var i = 0; i < 9; i++) {
-  getInfo(startingYear, endingYear);
+for (var i = 0; i < finalSet; i++) {
+  getInfo(startingYear, endingYear, climateData, i);
   startingYear += 20;
   endingYear += 20;
 }
 
 // GETTING THE INFORMATION FROM THE WORLD BANK DATA API FOR DIFFERENT YEARS
 // AND THEN PUSHING EVERYTHING TO THE CLIMATEDATA ARRAY.
-function getInfo(startingYear, endingYear){
+function getInfo(startingYear, endingYear, climateData, increment){
   $.ajax({
     url: "http://climatedataapi.worldbank.org/climateweb/rest/v1/country/annualavg/tas/" + startingYear + "/" + endingYear + "/NZL",
     dataType: "json",
@@ -34,19 +35,20 @@ function getInfo(startingYear, endingYear){
       currentAverage = total / data.length;
 
       // IF A THE AVERAGE IS A NUMBER, THEN PUSH TO GLOBAL LIST
-      if (currentAverage !== "NaN"){
-        console.log(currentAverage);
+      if (isNaN(currentAverage)){
+        return;
+      } else {
+        climateData.push({
+          "startingYear": startingYear,
+          "endingYear": endingYear,
+          "averageClimate": currentAverage
+        });
       }
 
-      // climateData.push({
-      //     "startingYear": startingYear,
-      //     "endingYear": endingYear,
-      //     "averageClimate": currentAverage
-      //   });
-
-      if (climateData.length === 9){
-        console.log("match");
-        runGraph();
+      if((climateData.length + 1) !== finalSet){
+        return;
+      } else if ((climateData.length + 1) === finalSet){
+        runGraph(climateData);
       }
       },
       error:function(){
@@ -78,41 +80,33 @@ $(document).on('click', 'a[href^="#"]', function(e){
 
 // THIS IS THE D3 GRAPH
 function runGraph(){
-  console.log(climateData)
-  var CurrentColor;
+  var barColor;
 
   var margin = {top:30, right:30, bottom:30, left:30}
+  var graphHeight = $("#chart-container").height();
+  var graphWidth = $("#chart-container").width();
+  console.log(graphWidth);
 
   var barWidth = 50,
       barOffset = 5,
-      width = 1000 - margin.left - margin.right,
-      height = 650 - margin.top - margin.bottom;
+      width = graphWidth - margin.left - margin.right,
+      height = graphHeight - margin.top - margin.bottom;
 
-  var barData = [];
+  var barGraphData = [];
   for (var i = 0; i < climateData.length; i++) {
-    barData.push(climateData[i].averageClimate);
+    barGraphData.push(climateData[i].averageClimate);
   }
 
-  barData.sort(function compareNumbers(a,b){
-    return a - b;
-  })
-
   var yScale = d3.scaleLinear()
-    .domain([0, d3.max(barData)])
+    .domain([0, d3.max(barGraphData)])
     .range([0, height])
   var xScale = d3.scaleBand()
-    .domain(d3.range(0, barData.length))
+    .domain(d3.range(0, barGraphData.length))
     .range([0, width])
 
   var color = d3.scaleLinear()
-    .domain([0, barData.length * 0.33, barData.length * 0.66, barData.length])
-    .range(["#F22613", "#19B5FE", "#F89406", "#BFBFBF"])
-
-  var tooltip = d3.select("body").append("div")
-    .style("position", "absolute")
-    .style("padding", "0px 10px")
-    .style("background-color", "white")
-    .style("opacity", 0)
+    .domain([0, barGraphData.length])
+    .range(["#0061FF", "#FF4300"])
 
   // Vertical Bar
   var Graph = d3.select("#chart-container")
@@ -124,7 +118,7 @@ function runGraph(){
       .attr("transform", "translate(" + margin.left + ", " + margin.top + ")")
       .attr("id", "BarGraphShapes")
       .selectAll("rect")
-        .data(barData)
+        .data(barGraphData)
         .enter().append("rect")
         .style("fill", function(data, i){
           return color(i);
@@ -136,40 +130,31 @@ function runGraph(){
         })
         .attr("y", height)
         .on("mouseover", function(data){
-          CurrentColor = this.style.fill;
+          barColor = this.style.fill;
           d3.select(this)
             .style("opacity", 0.5)
         }).on("mouseout", function(data){
           d3.select(this).style("opacity", 1)
-          tooltip.style("opacity", 0)
         }).on("click", function(data){
-          tooltip.transition()
-            .style("opacity", 1)
-          tooltip.html(data)
-            .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY) + "px")
+          $("#chart-info").text(data);
         })
 
-        Graph.transition()
-          .duration(1000)
-          .attr("height", function(data){
-            return yScale(data);
-          })
-          .attr("y", function(data){
-            return height - yScale(data);
-          })
-          .ease(d3.easeBounce)
-          .delay(function(data, i){
-            return i * 50;
-          })
-
-  for (var i = 0; i < barData.length; i++) {
-    console.log(barData[i]);
-  }
+  Graph.transition()
+    .duration(1000)
+    .attr("height", function(data){
+      return yScale(data);
+    })
+    .attr("y", function(data){
+      return height - yScale(data);
+    })
+    .ease(d3.easeElasticOut)
+    .delay(function(data, i){
+      return i * 300;
+    })
 
   // THIS IS THE VERTICAL AXIS FOR THE D3 GRAPH
   var VGuideScale = d3.scaleLinear()
-    .domain([0, d3.max(barData)])
+    .domain([0, d3.max(barGraphData)])
     .range([height, 0])
 
   var vAxis = d3.axisLeft(VGuideScale)
@@ -179,32 +164,29 @@ function runGraph(){
     vAxis(vGuide)
     vGuide.attr("transform", "translate(" + margin.left + ", " + margin.top + ")")
     vGuide.select("path")
-      .style("stroke", "red")
+      .style("stroke", "white")
 
   var hAxis = d3.axisBottom(xScale)
     .tickValues(xScale.domain().filter(function(data, i){
-      return !(i % (barData.length / 5));
+      return !(i % (barGraphData.length / 5));
     }))
 
   var hGuide = d3.select("svg").append("g")
     hAxis(hGuide)
     hGuide.attr("transform", "translate(" + margin.left + ", " + (height + margin.top) + ")")
     hGuide.select("path")
-      .style("stroke", "red")
+      .style("stroke", "white")
 }
 
-// Kenneth JS
+// ------------------- MASSEY ENDING HERE -------------------------
+
 //----------------------------KENNETH--------------------------
-console.log("here");
-
-
 $.ajax({
 	url:"http://localhost:3000/tweets.json",
 	dataType:"json",
 	success: function(data){
 		for (var i = 0; i < data.length; i++) {
 			var tweet = data[i];
-			console.log(data[i]);
 			$("#twitter-feed").append("<p class='tweet-font'>"+tweet.text+"</p></br>");
 		}
 	},
@@ -214,4 +196,3 @@ $.ajax({
 
 });
 //----------------------------KENNETH--------------------------
-

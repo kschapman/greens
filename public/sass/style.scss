@@ -1,7 +1,8 @@
+// --------------------- MASSEY SASS CODE START -------------------------
 // Variables
 $full:100%;
 $null:0px;
-$green:rgb(21, 169, 45);
+$green:#00c760;
 
 // Mixins
 @mixin background-img{
@@ -71,6 +72,7 @@ body, html{
 		font-size:16px;
 		margin-bottom:$null;
 		color:#FFFFFF;
+		text-align:center;
 	}
 
 	.btn, .present, i{
@@ -109,17 +111,30 @@ body, html{
 	position:relative;
 }
 
-// Massey CSS
 #home{
 	background-color:$green;
 
 	#chart-container{
-		position:relative;
-		top:50%;
-		left:50%;
-		transform:translate(-50%, -50%); 
+		position:absolute;
+		height:85%;
+		width:66.6%;
+		margin:15px;
+		bottom:$null;
+	}
+
+	#chart-info{
+		position:absolute;
+		float:right;
+		right:$null;
+		margin:15px;
+		width:33.3%;
+		height:85%;
+		bottom:$null;
+		background-color:purple;
 	}
 }
+
+// --------------------- MASSEY SASS CODE END -------------------------
 
 // Kenneth CSS
 #about{
@@ -153,7 +168,7 @@ body, html{
 .james-heading {
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #15A92D;
+  color: $green;
   float:none;
 }
 
@@ -196,7 +211,7 @@ body, html{
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
-  color: #15A92D;
+  color: $green;
   float:none;
 }
 
