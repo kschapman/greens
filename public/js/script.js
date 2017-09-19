@@ -15,6 +15,9 @@ for (var i = 0; i < finalSet; i++) {
   endingYear += 20;
 }
 
+// SETTING INNER PADDING FOR CONTAINERS
+// $("#section")
+
 // GETTING THE INFORMATION FROM THE WORLD BANK DATA API FOR DIFFERENT YEARS
 // AND THEN PUSHING EVERYTHING TO THE CLIMATEDATA ARRAY.
 function getInfo(startingYear, endingYear, climateData, increment){
@@ -77,6 +80,23 @@ $(document).on('click', 'a[href^="#"]', function(e){
     // ANIMATED TOP SCROLLING
     $('body, html').animate({scrollTop: pos});
 });
+
+// Change navigation color on scroll
+  $(window).scroll(function(){
+    var scroll = $(window).scrollTop();
+    var navigation = $("#nav"); 
+    if (scroll > ($("#home").height() - navigation.height())) {
+      // Changing background color when scroll_start = 0 (When scrolling away)
+      navigation.css({"background": "#00c760"});
+      $(".btn").css({"color": "rgb(255,255,255)"});
+      $("#presentation").css({"background-color": "white"});
+      $(".fa-television").css("color", "#00c760");
+    } else {
+      // Changing background color to black when scroll_start > 0 (When on origin)
+      navigation.css("background-color", "rgba(0,0,0)");
+      navigation.css("box-shadow", "none");
+    }
+  });
 
 // THIS IS THE D3 GRAPH
 function runGraph(){

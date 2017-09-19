@@ -33,7 +33,7 @@ body, html{
 // All encompassing container
 #wrapper{
 	position:absolute;
-	width:100vw;
+	min-width:100vw;
 	min-height:10px;
 }
 
@@ -130,7 +130,7 @@ body, html{
 		width:33.3%;
 		height:85%;
 		bottom:$null;
-		background-color:purple;
+		background-color:white;
 	}
 }
 

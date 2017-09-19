@@ -12,7 +12,7 @@ body, html {
 
 #wrapper {
   position: absolute;
-  width: 100vw;
+  min-width: 100vw;
   min-height: 10px; }
 
 #nav {
@@ -88,7 +88,7 @@ body, html {
     width: 33.3%;
     height: 85%;
     bottom: 0px;
-    background-color: purple; }
+    background-color: white; }
 
 #about {
   background-color: white;
