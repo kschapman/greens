@@ -8,15 +8,16 @@ var startingYear = 1920,
 var climateData = [];
 
 // LOOPING AND CALLING THE SAME FUNCTION, THE YEAR INCREMENTS BY 20 TO CHANGE THE URL
-// REQUEST.
+// REQUEST TO THE API.
 for (var i = 0; i < finalSet; i++) {
-  getInfo(startingYear, endingYear, climateData, i);
-  startingYear += 20;
-  endingYear += 20;
+    getInfo(startingYear, endingYear, climateData, i);
+    startingYear += 20;
+    endingYear += 20;
+    console.log(startingYear);
 }
 
 // SETTING INNER PADDING FOR CONTAINERS
-// $("#section")
+$(".scrolling-padding").css("padding-top", ($("#nav").height()) + 75);
 
 // GETTING THE INFORMATION FROM THE WORLD BANK DATA API FOR DIFFERENT YEARS
 // AND THEN PUSHING EVERYTHING TO THE CLIMATEDATA ARRAY.
@@ -51,6 +52,7 @@ function getInfo(startingYear, endingYear, climateData, increment){
       if((climateData.length + 1) !== finalSet){
         return;
       } else if ((climateData.length + 1) === finalSet){
+        climateData = sortGraphValues(climateData);
         runGraph(climateData);
       }
       },
@@ -58,6 +60,13 @@ function getInfo(startingYear, endingYear, climateData, increment){
        console.log("Error, server not responding.");
       }
   });
+}
+
+function sortGraphValues(data){
+  data.sort(function compareNumbers(a,b){
+    return a["startingYear"] - b["startingYear"];
+  })
+  return data;
 }
 
 // FOR SCROLLING TO DIFFERENT AREAS OF THE WEBSITE
@@ -81,23 +90,6 @@ $(document).on('click', 'a[href^="#"]', function(e){
     $('body, html').animate({scrollTop: pos});
 });
 
-// Change navigation color on scroll
-  $(window).scroll(function(){
-    var scroll = $(window).scrollTop();
-    var navigation = $("#nav"); 
-    if (scroll > ($("#home").height() - navigation.height())) {
-      // Changing background color when scroll_start = 0 (When scrolling away)
-      navigation.css({"background": "#00c760"});
-      $(".btn").css({"color": "rgb(255,255,255)"});
-      $("#presentation").css({"background-color": "white"});
-      $(".fa-television").css("color", "#00c760");
-    } else {
-      // Changing background color to black when scroll_start > 0 (When on origin)
-      navigation.css("background-color", "rgba(0,0,0)");
-      navigation.css("box-shadow", "none");
-    }
-  });
-
 // THIS IS THE D3 GRAPH
 function runGraph(){
   var barColor;
@@ -112,20 +104,24 @@ function runGraph(){
       width = graphWidth - margin.left - margin.right,
       height = graphHeight - margin.top - margin.bottom;
 
-  var barGraphData = [];
+  var averageClimate = [];
+  var period = [];
+
   for (var i = 0; i < climateData.length; i++) {
-    barGraphData.push(climateData[i].averageClimate);
+    averageClimate.push(climateData[i].averageClimate);
+    period.push(climateData[i].endingYear);
   }
 
   var yScale = d3.scaleLinear()
-    .domain([0, d3.max(barGraphData)])
+    .domain([0, d3.max(averageClimate)])
     .range([0, height])
+
   var xScale = d3.scaleBand()
-    .domain(d3.range(0, barGraphData.length))
+    .domain(d3.range(0, averageClimate.length))
     .range([0, width])
 
   var color = d3.scaleLinear()
-    .domain([0, barGraphData.length])
+    .domain([0, averageClimate.length])
     .range(["#0061FF", "#FF4300"])
 
   // Vertical Bar
@@ -138,7 +134,7 @@ function runGraph(){
       .attr("transform", "translate(" + margin.left + ", " + margin.top + ")")
       .attr("id", "BarGraphShapes")
       .selectAll("rect")
-        .data(barGraphData)
+        .data(averageClimate)
         .enter().append("rect")
         .style("fill", function(data, i){
           return color(i);
@@ -156,7 +152,9 @@ function runGraph(){
         }).on("mouseout", function(data){
           d3.select(this).style("opacity", 1)
         }).on("click", function(data){
-          $("#chart-info").text(data);
+          $("#graph-values").text(data.toFixed(2));
+          $("#graph-values").fadeIn(1000);
+          $("#deg").fadeIn(1000);
         })
 
   Graph.transition()
@@ -174,7 +172,7 @@ function runGraph(){
 
   // THIS IS THE VERTICAL AXIS FOR THE D3 GRAPH
   var VGuideScale = d3.scaleLinear()
-    .domain([0, d3.max(barGraphData)])
+    .domain([0, d3.max(averageClimate)])
     .range([height, 0])
 
   var vAxis = d3.axisLeft(VGuideScale)
@@ -187,9 +185,7 @@ function runGraph(){
       .style("stroke", "white")
 
   var hAxis = d3.axisBottom(xScale)
-    .tickValues(xScale.domain().filter(function(data, i){
-      return !(i % (barGraphData.length / 5));
-    }))
+    .tickValues([period]);
 
   var hGuide = d3.select("svg").append("g")
     hAxis(hGuide)
