@@ -1,6 +1,6 @@
 // --------------------- MASSEY SASS CODE START -------------------------
 // Variables
-$full:100%;
+$full:1024px;
 $null:0px;
 $green:#00c760;
 
@@ -24,7 +24,6 @@ body, html{
 }
 
 *{
-	float:left;
 	margin:$null;
 	padding:$null;
 	font-family: 'Quicksand', sans-serif;
@@ -32,9 +31,14 @@ body, html{
 
 // All encompassing container
 #wrapper{
-	position:absolute;
-	min-width:100vw;
+	max-width:$full;
 	min-height:10px;
+	margin:0 auto;
+	box-shadow:$null $null 1px 1px #999;
+}
+
+.fade-this{
+	display:block;
 }
 
 // Nav Styling
@@ -44,14 +48,15 @@ body, html{
 	width:$full;
 	min-height:10px;
 	background-color:#FFF;
-	z-index:1;
+	z-index:50;
 	padding:20px;
-	box-shadow:0px 0px 1px 1px #999;
+	box-shadow:$null $null 1px 1px #999;
 
 	#logo-container{
 		@include background-img;
-		width:40px;
-		height:40px;
+		float:left;
+		min-width:40px;
+		min-height:40px;
 		border-radius:50px;
 		background-image:url("../img/greens-logo.jpg");
 	}
@@ -111,6 +116,25 @@ body, html{
 	position:relative;
 }
 
+#hidden-slider{
+	position:fixed;
+	display:none;
+	top:$null;
+	width:$full;
+	background-color:#333333;
+	height:100%;
+	z-index:1;
+
+	.fa{
+		position:absolute;
+		color:white;
+		font-size:60px;
+		left:50%;
+		top:50%;
+		transform:translate(-50%, -50%);
+	}
+}
+
 #home{
 	box-sizing:border-box;
 	background-color:$green;
@@ -134,7 +158,6 @@ body, html{
 
 		.info-heading{
 			font-size:22px;
-			width:$full;
 			text-align:center;
 			color:white;
 		}
@@ -146,13 +169,22 @@ body, html{
 			height:25%;
 			border-left:10px solid white;
 			padding-top:20px;
+			padding-bottom:20px;
 
 			#graph-values{
 				display:none;
 				margin-top:10%;
-				width:$full;
+				width:100%;
 				color:white;
 				font-size:50px;
+				text-align:center;
+			}
+
+			.fa{
+				font-size:50px;
+				color:white;
+				width:100%;
+				margin-top:10px;
 				text-align:center;
 			}
 
@@ -160,9 +192,10 @@ body, html{
 				display:none;
 				color:white;
 				bottom:$null;
-				width:$full;
+				width:100%;
 				text-align:center;
 			}
+
 		}
 
 		#action-container{
@@ -172,11 +205,27 @@ body, html{
 			height:60%;
 			background-color:white;
 			border-left:10px solid #333333;
+			overflow-y:scroll;
 
 			h1{color:#333;}
 
 			p{
-				margin:5px 20px;
+				margin:5px 30px;
+			}
+
+			a{
+				@include timing;
+				color:$green;
+				text-align:center;
+				text-decoration:none;
+				width:100%;
+				text-align:center;
+				margin:15px $null;
+
+				&:hover{
+					@include timing;
+					letter-spacing:2px;
+				}
 			}
 		}
 	}
@@ -186,12 +235,9 @@ body, html{
 
 // Kenneth CSS
 #about{
-	background-color:white;
-	width: $full;
-	margin: 0 auto;
-	margin-top: 50px;
+    background-color:white;
+    margin-top: 50px;
 }
-
 // Amy CSS
 #contact{
 	background-color:blue;
