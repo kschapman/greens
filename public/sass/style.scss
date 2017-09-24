@@ -1,6 +1,6 @@
 // --------------------- MASSEY SASS CODE START -------------------------
 // Variables
-$full:100%;
+$full:1024px;
 $null:0px;
 $green:#00c760;
 
@@ -24,33 +24,34 @@ body, html{
 }
 
 *{
-	float:left;
+	// float:left;
 	margin:$null;
 	padding:$null;
-	font-family:"Arial", sans-serif;
 }
 
 // All encompassing container
 #wrapper{
-	position:absolute;
-	min-width:100vw;
+	// position:absolute;
+	max-width:$full;
 	min-height:10px;
+	margin: 0 auto;
 }
 
 // Nav Styling
 #nav{
 	position:fixed;
-	box-sizing:border-box;
-	width:$full;
+	// box-sizing:border-box;
 	min-height:10px;
+	min-width: 984px;
 	background-color:#FFF;
 	z-index:1;
 	padding:20px;
 
+
 	#logo-container{
 		@include background-img;
-		width:75px;
-		height:75px;
+		width:45px;
+		height:45px;
 		border-radius:50px;
 		background-image:url("../img/greens-logo.jpg");
 	}
@@ -82,7 +83,7 @@ body, html{
 		font-size:16px;
 		font-weight:300;
 		line-height:45px;
-		margin-top:20px;
+		margin-top:-40px;
 		margin-left:30px;
 		max-width:100px;
 		position:relative;
@@ -139,8 +140,8 @@ body, html{
 // Kenneth CSS
 #about{
 	background-color:white;
-	width: $full;
-	margin: 0 auto;
+	// max-width: $full;
+	// margin: 0 auto;
 	margin-top: 50px;
 }
 
@@ -152,8 +153,8 @@ body, html{
 //ABOUT STYLING
 .james-info {
   float: left;
-  width: 40%;
-  margin-left:20%;
+  width: 76%;
+  // margin-left:20%;
 }
 
 .james-pic {
