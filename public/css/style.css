@@ -6,22 +6,12 @@ body, html {
 
 * {
   margin: 0px;
-<<<<<<< HEAD
-  padding: 0px; }
-=======
   padding: 0px;
   font-family: 'Quicksand', sans-serif; }
->>>>>>> master
 
 #wrapper {
   max-width: 1024px;
   min-height: 10px;
-<<<<<<< HEAD
-  margin: 0 auto; }
-
-#nav {
-  position: fixed;
-=======
   margin: 0 auto;
   box-shadow: 0px 0px 1px 1px #999; }
 
@@ -30,9 +20,6 @@ body, html {
 
 #nav {
   position: fixed;
-  box-sizing: border-box;
-  width: 1024px;
->>>>>>> master
   min-height: 10px;
   min-width: 984px;
   background-color: #FFF;
@@ -43,14 +30,9 @@ body, html {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-<<<<<<< HEAD
-    width: 45px;
-    height: 45px;
-=======
     float: left;
     min-width: 40px;
     min-height: 40px;
->>>>>>> master
     border-radius: 50px;
     background-image: url("../img/greens-logo.jpg"); }
   #nav a {
@@ -73,10 +55,6 @@ body, html {
     font-size: 16px;
     font-weight: 300;
     line-height: 45px;
-<<<<<<< HEAD
-    margin-top: -40px;
-=======
->>>>>>> master
     margin-left: 30px;
     max-width: 100px;
     position: relative;
@@ -186,6 +164,8 @@ body, html {
           letter-spacing: 2px; }
 
 #about {
+  background-color: white;
+  margin-top: 50px;
   background-color: white;
   margin-top: 50px; }
 
