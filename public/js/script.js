@@ -15,15 +15,13 @@ for (var i = 0; i < finalSet; i++) {
     getInfo(startingYear, endingYear, climateData, i);
     startingYear += 20;
     endingYear += 20;
-    console.log(startingYear);
 }
 
 // SETTING INNER PADDING FOR CONTAINERS
 $(".scrolling-padding").css("padding-top", ($("#nav").height()) + 75);
 
-// ABOUT SECTION HEIGHT TO ACCOMODATE FOR TEXT OVERFLOW-Y
+// ABOUT SECTION HEIGHT TO ACCOMODATE FOR TEXT OVERFLOW-Y FOR JAMES SHAW SECTION
 $("#about").css("height", ( ( $("#about").height() + $(".james-text").height() ) - $("#about").height() ) + ($("#nav").height()) + 75 );
-console.log($("#about").height() - ( $("#about").height() + $(".james-text").height() ) );
 
 // CREATING THE PRESENTATION MODE
 $(".present").click(function(){
@@ -149,7 +147,6 @@ function runGraph(){
   var margin = {top:30, right:30, bottom:30, left:30}
   var graphHeight = $("#chart-container").height();
   var graphWidth = $("#chart-container").width();
-  console.log(graphWidth);
 
   var barWidth = 50,
       barOffset = 5,
@@ -165,8 +162,8 @@ function runGraph(){
   }
 
   var yScale = d3.scaleLinear()
-    .domain([0, d3.max(averageClimate)])
-    .range([0, height])
+    .domain([10, d3.max(averageClimate)])
+    .range([10, height])
 
   var xScale = d3.scaleBand()
     .domain(d3.range(0, climateData.length))
@@ -206,11 +203,13 @@ function runGraph(){
         }).on("mouseout", function(data){
           d3.select(this).style("opacity", 1)
         }).on("click", function(data){
-          $("#change-heading").text("Rising Temperatures in Aotearoa");
-          $("#graph-values").text(data.toFixed(2));
-          $("#graph-values").fadeIn(1000);
-          $("#deg").fadeIn(1000);
-          $(".fa-bar-chart").hide();
+          if(mouseBar === true){
+            $("#change-heading").text("Rising Temperatures in Aotearoa");
+            $("#graph-values").text(data.toFixed(2));
+            $("#graph-values").fadeIn(1000);
+            $("#deg").fadeIn(1000);
+            $(".fa-bar-chart").hide();
+          }
         })
 
   Graph.transition()
@@ -241,7 +240,8 @@ function runGraph(){
       .style("stroke", "white")
 
   var hAxis = d3.axisBottom(xScale)
-    // .tickValues(xScale.domain(d3.extent(data)));
+    // .tickValues([period])
+    .tickValues(xScale.domain(d3.extent([period])))
 
   // var hAxis = d3.axisBottom(xScale)
   //   .tickValues(
@@ -259,7 +259,7 @@ function runGraph(){
 
 // ------------------- MASSEY ENDING HERE -------------------------
 
-//----------------------------KENNETH--------------------------
+//----------------------------KENNETH START HERE--------------------------
 $.ajax({
 	url:"http://localhost:3000/tweets.json",
 	dataType:"json",
@@ -274,4 +274,182 @@ $.ajax({
 	}
 
 });
-//----------------------------KENNETH--------------------------
+//----------------------------KENNETH END HERE--------------------------
+
+
+//---------------------AMY START HERE----------------------------------
+
+var markers = [
+    ['Bowen House', -41.2795458, 174.7766301, 'marker1', 'parliment', 'PARLIMENTARY OFFICE', 'Bowen House,<br> Lambton Quay,<br> Wellington,<br> 04-801 5102,<br>Fax: 04-472 6003'],
+    ['Green Party of Aotearoa New Zealand', -41.2935528,174.7722302, 'marker2', 'garrett', 'GREEN PARTY OF AOTEAROA', 'Level 2<br>17 Garrett St<br> Te Aro,<br> Wellington,<br> 04-801 5102']
+];
+var popupBox;
+
+for (var i = 0; i < markers.length; i++) {
+    $("#offices").append(
+            "<div class='office' id='"+markers[i][3]+"'>"+
+                "<div class='title'>"+markers[i][5]+"</div>"+
+                "<div class='info'>"+markers[i][6]+"</div>"+
+            "</div>"
+    )    
+}
+
+function initMap() {
+       var welly = {lat: -41.2912585, lng: 174.77426};
+       var map = new google.maps.Map(document.getElementById('map'), 
+{
+        zoom: 15,
+        center: welly,
+        styles:[
+            {
+                "featureType": "administrative",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                    "color": "#444444 "
+                    }
+                ]
+            },
+            {
+                "featureType": "landscape",
+                "elementType": "all",
+                "stylers": [
+                    {
+                    "color": "#49524B "
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "all",
+                "stylers": [
+                    {
+                    "visibility": "simplified",
+                    "color": "#49524B"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "geometry.fill",
+                "stylers": [
+                    {
+                    "color": "#72CA81"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.business",
+                "elementType": "labels",
+                "stylers": [
+                    {
+                    "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.attraction",
+                "elementType": "labels",
+                "stylers": [
+                    {
+                    "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": [
+                    {
+                    "saturation": -100
+                    },
+             
+                    {
+                    "lightness": 45
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "all",
+                "stylers": [
+                    {    
+                    "visibility": "simplified"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "labels.icon",
+                 "stylers": [
+                    {
+                    "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit",
+                "elementType": "all",
+                "stylers": [
+                    {
+                    "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit.station.airport",
+                "elementType": "all",
+                "stylers": [
+                    {
+                    "visibility": "off"
+                    }
+                ]
+            },
+   
+            {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": [
+                    {
+                    "color": "#9BE3F6"
+                    },
+                    {
+                    "visibility": "on"
+                    }
+                ]
+            }
+        ]
+
+       });
+
+    for( i = 0; i < markers.length; i++ ) {
+        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+        
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markers[i][0],
+            icon: "img/MarkerGreen.png",
+            markerID : markers[i][3]
+        });
+        MarkerClickEvent(marker);
+    
+    }
+
+    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+        this.setZoom(14);
+        google.maps.event.removeListener(boundsListener);
+    });
+}
+
+function MarkerClickEvent(marker){
+    google.maps.event.addListener(marker, "click", function(){
+
+        $('.office').removeClass('office-click');
+        $("#"+marker.markerID).addClass('office-click');
+
+    });
+}
+
+//---------------------------AMY END HERE-----------------------------
