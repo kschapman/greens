@@ -101,6 +101,8 @@ body, html {
     width: 66.6%;
     margin: 15px;
     bottom: 0px; }
+    #home #chart-container rect {
+      cursor: pointer; }
   #home #chart-info {
     position: absolute;
     float: right;
@@ -114,6 +116,7 @@ body, html {
       text-align: center;
       color: white; }
     #home #chart-info #value-container {
+      box-sizing: border-box;
       background: #333;
       width: 90%;
       margin: 5px 5%;
@@ -141,26 +144,27 @@ body, html {
         width: 100%;
         text-align: center; }
     #home #chart-info #action-container {
-      padding-top: 20px;
+      box-sizing: border-box;
+      padding: 20px 15px;
       width: 90%;
       margin: 5px 5%;
-      height: 60%;
+      height: 70%;
       background-color: white;
       border-left: 10px solid #333333;
       overflow-y: scroll; }
       #home #chart-info #action-container h1 {
         color: #333; }
       #home #chart-info #action-container p {
-        margin: 5px 30px; }
-      #home #chart-info #action-container a {
+        margin: 5px 0px; }
+      #home #chart-info #action-container .policy-link {
         transition: 1s;
+        display: block;
         color: #00c760;
-        text-align: center;
         text-decoration: none;
         width: 100%;
         text-align: center;
-        margin: 15px 0px; }
-        #home #chart-info #action-container a:hover {
+        margin: 15px auto 0px auto; }
+        #home #chart-info #action-container .policy-link:hover {
           transition: 1s;
           letter-spacing: 2px; }
 

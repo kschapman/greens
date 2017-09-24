@@ -15,15 +15,13 @@ for (var i = 0; i < finalSet; i++) {
     getInfo(startingYear, endingYear, climateData, i);
     startingYear += 20;
     endingYear += 20;
-    console.log(startingYear);
 }
 
 // SETTING INNER PADDING FOR CONTAINERS
 $(".scrolling-padding").css("padding-top", ($("#nav").height()) + 75);
 
-// ABOUT SECTION HEIGHT TO ACCOMODATE FOR TEXT OVERFLOW-Y
+// ABOUT SECTION HEIGHT TO ACCOMODATE FOR TEXT OVERFLOW-Y FOR JAMES SHAW SECTION
 $("#about").css("height", ( ( $("#about").height() + $(".james-text").height() ) - $("#about").height() ) + ($("#nav").height()) + 75 );
-console.log($("#about").height() - ( $("#about").height() + $(".james-text").height() ) );
 
 // CREATING THE PRESENTATION MODE
 $(".present").click(function(){
@@ -149,7 +147,6 @@ function runGraph(){
   var margin = {top:30, right:30, bottom:30, left:30}
   var graphHeight = $("#chart-container").height();
   var graphWidth = $("#chart-container").width();
-  console.log(graphWidth);
 
   var barWidth = 50,
       barOffset = 5,
@@ -206,11 +203,13 @@ function runGraph(){
         }).on("mouseout", function(data){
           d3.select(this).style("opacity", 1)
         }).on("click", function(data){
-          $("#change-heading").text("Rising Temperatures in Aotearoa");
-          $("#graph-values").text(data.toFixed(2));
-          $("#graph-values").fadeIn(1000);
-          $("#deg").fadeIn(1000);
-          $(".fa-bar-chart").hide();
+          if(mouseBar === true){
+            $("#change-heading").text("Rising Temperatures in Aotearoa");
+            $("#graph-values").text(data.toFixed(2));
+            $("#graph-values").fadeIn(1000);
+            $("#deg").fadeIn(1000);
+            $(".fa-bar-chart").hide();
+          }
         })
 
   Graph.transition()
@@ -241,7 +240,8 @@ function runGraph(){
       .style("stroke", "white")
 
   var hAxis = d3.axisBottom(xScale)
-    // .tickValues(xScale.domain(d3.extent(data)));
+    // .tickValues([period])
+    .tickValues(xScale.domain(d3.extent(period)))
 
   // var hAxis = d3.axisBottom(xScale)
   //   .tickValues(

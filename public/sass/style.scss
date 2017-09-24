@@ -145,6 +145,10 @@ body, html{
 		width:66.6%;
 		margin:15px;
 		bottom:$null;
+
+		rect{
+			cursor:pointer;
+		}
 	}
 
 	#chart-info{
@@ -163,6 +167,7 @@ body, html{
 		}
 
 		#value-container{
+			box-sizing:border-box;
 			background:#333;
 			width:90%;
 			margin:5px 5%;
@@ -199,28 +204,27 @@ body, html{
 		}
 
 		#action-container{
-			padding-top:20px;
+			box-sizing:border-box;
+			padding:20px 15px;
 			width:90%;
 			margin:5px 5%;
-			height:60%;
+			height:70%;
 			background-color:white;
 			border-left:10px solid #333333;
 			overflow-y:scroll;
 
 			h1{color:#333;}
 
-			p{
-				margin:5px 30px;
-			}
+			p{margin:5px $null;}
 
-			a{
+			.policy-link{
 				@include timing;
+				display:block;
 				color:$green;
-				text-align:center;
 				text-decoration:none;
 				width:100%;
 				text-align:center;
-				margin:15px $null;
+				margin:15px auto $null auto;
 
 				&:hover{
 					@include timing;
