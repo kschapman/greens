@@ -6,26 +6,51 @@ body, html {
 
 * {
   margin: 0px;
+<<<<<<< HEAD
   padding: 0px; }
+=======
+  padding: 0px;
+  font-family: 'Quicksand', sans-serif; }
+>>>>>>> master
 
 #wrapper {
   max-width: 1024px;
   min-height: 10px;
+<<<<<<< HEAD
   margin: 0 auto; }
 
 #nav {
   position: fixed;
+=======
+  margin: 0 auto;
+  box-shadow: 0px 0px 1px 1px #999; }
+
+.fade-this {
+  display: block; }
+
+#nav {
+  position: fixed;
+  box-sizing: border-box;
+  width: 1024px;
+>>>>>>> master
   min-height: 10px;
   min-width: 984px;
   background-color: #FFF;
-  z-index: 1;
-  padding: 20px; }
+  z-index: 50;
+  padding: 20px;
+  box-shadow: 0px 0px 1px 1px #999; }
   #nav #logo-container {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+<<<<<<< HEAD
     width: 45px;
     height: 45px;
+=======
+    float: left;
+    min-width: 40px;
+    min-height: 40px;
+>>>>>>> master
     border-radius: 50px;
     background-image: url("../img/greens-logo.jpg"); }
   #nav a {
@@ -48,14 +73,17 @@ body, html {
     font-size: 16px;
     font-weight: 300;
     line-height: 45px;
+<<<<<<< HEAD
     margin-top: -40px;
+=======
+>>>>>>> master
     margin-left: 30px;
     max-width: 100px;
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
     vertical-align: middle;
-    width: 100%;
+    width: 1024px;
     transition: 1s; }
   #nav .present {
     max-width: 50px; }
@@ -69,7 +97,24 @@ body, html {
   height: 100vh;
   position: relative; }
 
+#hidden-slider {
+  position: fixed;
+  display: none;
+  top: 0px;
+  width: 1024px;
+  background-color: #333333;
+  height: 100%;
+  z-index: 1; }
+  #hidden-slider .fa {
+    position: absolute;
+    color: white;
+    font-size: 60px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+
 #home {
+  box-sizing: border-box;
   background-color: #00c760; }
   #home #chart-container {
     position: absolute;
@@ -82,10 +127,63 @@ body, html {
     float: right;
     right: 0px;
     margin: 15px;
-    width: 33.3%;
+    width: 28%;
     height: 85%;
-    bottom: 0px;
-    background-color: white; }
+    bottom: 0px; }
+    #home #chart-info .info-heading {
+      font-size: 22px;
+      text-align: center;
+      color: white; }
+    #home #chart-info #value-container {
+      background: #333;
+      width: 90%;
+      margin: 5px 5%;
+      height: 25%;
+      border-left: 10px solid white;
+      padding-top: 20px;
+      padding-bottom: 20px; }
+      #home #chart-info #value-container #graph-values {
+        display: none;
+        margin-top: 10%;
+        width: 100%;
+        color: white;
+        font-size: 50px;
+        text-align: center; }
+      #home #chart-info #value-container .fa {
+        font-size: 50px;
+        color: white;
+        width: 100%;
+        margin-top: 10px;
+        text-align: center; }
+      #home #chart-info #value-container #deg {
+        display: none;
+        color: white;
+        bottom: 0px;
+        width: 100%;
+        text-align: center; }
+    #home #chart-info #action-container {
+      padding-top: 20px;
+      width: 90%;
+      margin: 5px 5%;
+      height: 60%;
+      background-color: white;
+      border-left: 10px solid #333333;
+      overflow-y: scroll; }
+      #home #chart-info #action-container h1 {
+        color: #333; }
+      #home #chart-info #action-container p {
+        margin: 5px 30px; }
+      #home #chart-info #action-container a {
+        transition: 1s;
+        color: #00c760;
+        text-align: center;
+        text-decoration: none;
+        width: 100%;
+        text-align: center;
+        margin: 15px 0px; }
+        #home #chart-info #action-container a:hover {
+          transition: 1s;
+          letter-spacing: 2px; }
 
 #about {
   background-color: white;

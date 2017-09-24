@@ -24,17 +24,21 @@ body, html{
 }
 
 *{
-	// float:left;
 	margin:$null;
 	padding:$null;
+	font-family: 'Quicksand', sans-serif;
 }
 
 // All encompassing container
 #wrapper{
-	// position:absolute;
 	max-width:$full;
 	min-height:10px;
-	margin: 0 auto;
+	margin:0 auto;
+	box-shadow:$null $null 1px 1px #999;
+}
+
+.fade-this{
+	display:block;
 }
 
 // Nav Styling
@@ -44,14 +48,16 @@ body, html{
 	min-height:10px;
 	min-width: 984px;
 	background-color:#FFF;
-	z-index:1;
+	z-index:50;
 	padding:20px;
+	box-shadow:$null $null 1px 1px #999;
 
 
 	#logo-container{
 		@include background-img;
-		width:45px;
-		height:45px;
+		float:left;
+		min-width:40px;
+		min-height:40px;
 		border-radius:50px;
 		background-image:url("../img/greens-logo.jpg");
 	}
@@ -83,14 +89,13 @@ body, html{
 		font-size:16px;
 		font-weight:300;
 		line-height:45px;
-		margin-top:-40px;
 		margin-left:30px;
 		max-width:100px;
 		position:relative;
 		text-decoration:none;
 		text-transform:uppercase;
 		vertical-align:middle;
-		width:100%;
+		width:$full;
 		@include timing;
 	}
 
@@ -112,7 +117,27 @@ body, html{
 	position:relative;
 }
 
+#hidden-slider{
+	position:fixed;
+	display:none;
+	top:$null;
+	width:$full;
+	background-color:#333333;
+	height:100%;
+	z-index:1;
+
+	.fa{
+		position:absolute;
+		color:white;
+		font-size:60px;
+		left:50%;
+		top:50%;
+		transform:translate(-50%, -50%);
+	}
+}
+
 #home{
+	box-sizing:border-box;
 	background-color:$green;
 
 	#chart-container{
@@ -128,10 +153,82 @@ body, html{
 		float:right;
 		right:$null;
 		margin:15px;
-		width:33.3%;
+		width:28%;
 		height:85%;
 		bottom:$null;
-		background-color:white;
+
+		.info-heading{
+			font-size:22px;
+			text-align:center;
+			color:white;
+		}
+
+		#value-container{
+			background:#333;
+			width:90%;
+			margin:5px 5%;
+			height:25%;
+			border-left:10px solid white;
+			padding-top:20px;
+			padding-bottom:20px;
+
+			#graph-values{
+				display:none;
+				margin-top:10%;
+				width:100%;
+				color:white;
+				font-size:50px;
+				text-align:center;
+			}
+
+			.fa{
+				font-size:50px;
+				color:white;
+				width:100%;
+				margin-top:10px;
+				text-align:center;
+			}
+
+			#deg{
+				display:none;
+				color:white;
+				bottom:$null;
+				width:100%;
+				text-align:center;
+			}
+
+		}
+
+		#action-container{
+			padding-top:20px;
+			width:90%;
+			margin:5px 5%;
+			height:60%;
+			background-color:white;
+			border-left:10px solid #333333;
+			overflow-y:scroll;
+
+			h1{color:#333;}
+
+			p{
+				margin:5px 30px;
+			}
+
+			a{
+				@include timing;
+				color:$green;
+				text-align:center;
+				text-decoration:none;
+				width:100%;
+				text-align:center;
+				margin:15px $null;
+
+				&:hover{
+					@include timing;
+					letter-spacing:2px;
+				}
+			}
+		}
 	}
 }
 
@@ -139,12 +236,16 @@ body, html{
 
 // Kenneth CSS
 #about{
+<<<<<<< HEAD
 	background-color:white;
 	// max-width: $full;
 	// margin: 0 auto;
 	margin-top: 50px;
+=======
+    background-color:white;
+    margin-top: 50px;
+>>>>>>> master
 }
-
 // Amy CSS
 #contact{
 	background-color:blue;
