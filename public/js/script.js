@@ -162,8 +162,8 @@ function runGraph(){
   }
 
   var yScale = d3.scaleLinear()
-    .domain([0, d3.max(averageClimate)])
-    .range([0, height])
+    .domain([10, d3.max(averageClimate)])
+    .range([10, height])
 
   var xScale = d3.scaleBand()
     .domain(d3.range(0, climateData.length))
@@ -241,7 +241,7 @@ function runGraph(){
 
   var hAxis = d3.axisBottom(xScale)
     // .tickValues([period])
-    .tickValues(xScale.domain(d3.extent(period)))
+    .tickValues(xScale.domain(d3.extent([period])))
 
   // var hAxis = d3.axisBottom(xScale)
   //   .tickValues(
