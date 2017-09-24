@@ -18,7 +18,7 @@ for (var i = 0; i < finalSet; i++) {
 }
 
 // SETTING INNER PADDING FOR CONTAINERS
-$(".scrolling-padding").css("padding-top", ($("#nav").height()) + 75);
+$(".scrolling-padding").css("padding-top", ($("#nav").height()));
 
 // ABOUT SECTION HEIGHT TO ACCOMODATE FOR TEXT OVERFLOW-Y FOR JAMES SHAW SECTION
 $("#about").css("height", ( ( $("#about").height() + $(".james-text").height() ) - $("#about").height() ) + ($("#nav").height()) + 75 );
@@ -130,11 +130,11 @@ $(document).on('click', 'a[href^="#"]', function(e){
         return;
     }
 
-    // AVOIDING STANDARD RELOAD ON CLICK (IE ESPECIALLY)
+    // AVOIDING STANDARD RELOAD ON CLICK (IE ESPECIALLY BECAUSE OF BROWSER BLINKING)
     e.preventDefault();
 
     // TOP POSITION RELATIVE TO THE DOCUMENT
-    var pos = $id.offset().top;
+    var pos = $id.offset().top - $("#nav").height();
 
     // ANIMATED TOP SCROLLING
     $('body, html').animate({scrollTop: pos});
