@@ -259,7 +259,7 @@ function runGraph(){
 
 // ------------------- MASSEY ENDING HERE -------------------------
 
-//----------------------------KENNETH--------------------------
+//----------------------------KENNETH START HERE--------------------------
 $.ajax({
 	url:"http://localhost:3000/tweets.json",
 	dataType:"json",
@@ -274,4 +274,182 @@ $.ajax({
 	}
 
 });
-//----------------------------KENNETH--------------------------
+//----------------------------KENNETH END HERE--------------------------
+
+
+//---------------------AMY START HERE----------------------------------
+
+var markers = [
+    ['Bowen House', -41.2795458, 174.7766301, 'marker1', 'parliment', 'PARLIMENTARY OFFICE', 'Bowen House,<br> Lambton Quay,<br> Wellington,<br> 04-801 5102,<br>Fax: 04-472 6003'],
+    ['Green Party of Aotearoa New Zealand', -41.2935528,174.7722302, 'marker2', 'garrett', 'GREEN PARTY OF AOTEAROA', 'Level 2<br>17 Garrett St<br> Te Aro,<br> Wellington,<br> 04-801 5102']
+];
+var popupBox;
+
+for (var i = 0; i < markers.length; i++) {
+    $("#offices").append(
+            "<div class='office' id='"+markers[i][3]+"'>"+
+                "<div class='title'>"+markers[i][5]+"</div>"+
+                "<div class='info'>"+markers[i][6]+"</div>"+
+            "</div>"
+    )    
+}
+
+function initMap() {
+       var welly = {lat: -41.2912585, lng: 174.77426};
+       var map = new google.maps.Map(document.getElementById('map'), 
+{
+        zoom: 15,
+        center: welly,
+        styles:[
+            {
+                "featureType": "administrative",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                    "color": "#444444 "
+                    }
+                ]
+            },
+            {
+                "featureType": "landscape",
+                "elementType": "all",
+                "stylers": [
+                    {
+                    "color": "#49524B "
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "all",
+                "stylers": [
+                    {
+                    "visibility": "simplified",
+                    "color": "#49524B"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "geometry.fill",
+                "stylers": [
+                    {
+                    "color": "#72CA81"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.business",
+                "elementType": "labels",
+                "stylers": [
+                    {
+                    "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.attraction",
+                "elementType": "labels",
+                "stylers": [
+                    {
+                    "visibility": "on"
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": [
+                    {
+                    "saturation": -100
+                    },
+             
+                    {
+                    "lightness": 45
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "all",
+                "stylers": [
+                    {    
+                    "visibility": "simplified"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "labels.icon",
+                 "stylers": [
+                    {
+                    "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit",
+                "elementType": "all",
+                "stylers": [
+                    {
+                    "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit.station.airport",
+                "elementType": "all",
+                "stylers": [
+                    {
+                    "visibility": "off"
+                    }
+                ]
+            },
+   
+            {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": [
+                    {
+                    "color": "#9BE3F6"
+                    },
+                    {
+                    "visibility": "on"
+                    }
+                ]
+            }
+        ]
+
+       });
+
+    for( i = 0; i < markers.length; i++ ) {
+        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+        
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markers[i][0],
+            icon: "img/MarkerGreen.png",
+            markerID : markers[i][3]
+        });
+        MarkerClickEvent(marker);
+    
+    }
+
+    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+        this.setZoom(14);
+        google.maps.event.removeListener(boundsListener);
+    });
+}
+
+function MarkerClickEvent(marker){
+    google.maps.event.addListener(marker, "click", function(){
+
+        $('.office').removeClass('office-click');
+        $("#"+marker.markerID).addClass('office-click');
+
+    });
+}
+
+//---------------------------AMY END HERE-----------------------------
