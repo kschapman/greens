@@ -175,8 +175,10 @@ body, html {
 
 .james-info {
   float: left;
+  padding-right: 2%;
   width: 55%;
-  margin-left: 12.5%; }
+  margin-left: 10%;
+  border-right: 2px solid green; }
 
 .james-pic {
   width: 150px;
@@ -213,7 +215,7 @@ body, html {
 
 .tweets {
   float: left;
-  padding-left: 2%;
+  padding-left: 4%;
   padding-right: 2%;
   width: 20%; }
 
@@ -224,6 +226,7 @@ body, html {
 .tweets-heading {
   margin-top: 20px;
   margin-bottom: 20px;
+  margin-left: -20px;
   text-align: center;
   color: #00c760;
   float: none; }
