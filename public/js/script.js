@@ -18,7 +18,7 @@ for (var i = 0; i < finalSet; i++) {
 }
 
 // SETTING INNER PADDING FOR CONTAINERS
-$(".scrolling-padding").css("padding-top", ($("#nav").height()) + 75);
+$(".scrolling-padding").css("padding-top", ($("#nav").height()));
 
 // ABOUT SECTION HEIGHT TO ACCOMODATE FOR TEXT OVERFLOW-Y FOR JAMES SHAW SECTION
 $("#about").css("height", ( ( $("#about").height() + $(".james-text").height() ) - $("#about").height() ) + ($("#nav").height()) + 75 );
@@ -130,11 +130,11 @@ $(document).on('click', 'a[href^="#"]', function(e){
         return;
     }
 
-    // AVOIDING STANDARD RELOAD ON CLICK (IE ESPECIALLY)
+    // AVOIDING STANDARD RELOAD ON CLICK (IE ESPECIALLY BECAUSE OF BROWSER BLINKING)
     e.preventDefault();
 
     // TOP POSITION RELATIVE TO THE DOCUMENT
-    var pos = $id.offset().top;
+    var pos = $id.offset().top - $("#nav").height();
 
     // ANIMATED TOP SCROLLING
     $('body, html').animate({scrollTop: pos});
@@ -162,8 +162,8 @@ function runGraph(){
   }
 
   var yScale = d3.scaleLinear()
-    .domain([10, d3.max(averageClimate)])
-    .range([10, height])
+    .domain([0, d3.max(averageClimate)])
+    .range([0, height])
 
   var xScale = d3.scaleBand()
     .domain(d3.range(0, climateData.length))
@@ -240,21 +240,19 @@ function runGraph(){
       .style("stroke", "white")
 
   var hAxis = d3.axisBottom(xScale)
-    // .tickValues([period])
-    .tickValues(xScale.domain(d3.extent([period])))
-
-  // var hAxis = d3.axisBottom(xScale)
-  //   .tickValues(
-  //     console.log(Number(period[i]))
-  //   );
-
-  .tickValues([period][i]);
+    .tickArguments(xScale.domain([1939, 1959, 1979, 1999, 2039, 2059, 2079, 2099]))
 
   var hGuide = d3.select("svg").append("g")
     hAxis(hGuide)
     hGuide.attr("transform", "translate(" + margin.left + ", " + (height + margin.top) + ")")
     hGuide.select("path")
       .style("stroke", "white")
+
+  var text = d3.selectAll("text")
+    .style("fill", "white")
+
+  var ticks = d3.selectAll("path")
+    .style("fill", "white")
 }
 
 // ------------------- MASSEY ENDING HERE -------------------------

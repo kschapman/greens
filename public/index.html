@@ -22,15 +22,48 @@
       </div>
 
       <div id="nav">
-        <a href="#home"><div id="logo-container"></div></a>
+        <a href="#splash"><div id="logo-container"></div></a>
         <div class="present"><i id="presentation" class="fa fa-television" aria-hidden="true"></i></div>
         <a href="#contact" class="btn fade-this">Contact</a>
         <a href="#about" class="btn fade-this">About</a>
+        <a href="#home" class="btn fade-this">Stats</a>
       </div>
 
-      <div id="home" class="section-container">
-        <div id="chart-container"></div>
+      <div id="splash" class="section-container fade-this">
+        <div id="site-purpose">
+          <h1>Green Party</h1>
+          <h3>New Zealand can lead the world in transitioning to a high-value, clean-tech, post-carbon economy that works for everyone.</h3>
+        </div>
+      </div>
+
+      <div id="spiel" class="section-container fade-this">
+        <h1>Our climate plan will protect the things that are #WorthSaving.</h1>
+        <h3>Climate change threatens the things we care about, and those things are #WorthSaving. The Green Party have a strong and ambitious plan that would make New Zealand carbon-free by the time today’s children are starting their own families. Once in government, the Greens would:</h3>
+        <ul>
+          <li>Invest in more efficient bus and train services, creating more liveable 
+          cities.</li>
+          <li>Stop oil drilling off our coasts and encourage more solar, wind and geothermal energy.</li>
+          <li>Incentivise land-owners to plant more carbon-absorbing trees.</li>
+          <li>Put a fair price on carbon pollution and return the revenue to households as a tax cut.</li>
+        </ul>
+        <a href="http://www.worthsaving.org.nz/" target="_blank">#WorthSaving</a>
+      </div>
+
+      <!-- THIS WHOLE SECTION IS FOR THE GRAPH ONLY AND CONTAINS INFORMATION RELATED TO IT -->
+      <div id="home" class="section-container scrolling-padding">
+
+        <!-- THIS IS WHERE THE GRAPH IS SITTING -->
+        <div id="chart-container">
+          <h3>Temperature Rising from Past to Future</h3>
+        </div>
+
+        <p id="vertical-axis">Temperature in Degress Celsius</p>
+        <p id="horizontal-axis">Year (Every Two Decades)</p>
+
+        <!-- THIS CONTAINS THE INFORMATION ABOUT THE GRAPH, AND THE INTERACTIVITY -->
         <div id="chart-info">
+
+          <!-- THIS IS WHERE THE INFORMATION WILL BE DISPLAYED, ONCE THE USER CLICKS ON A BAR IN THE GRAPH -->
           <div id="value-container">
             <h1 id="change-heading" class="info-heading">Click</h1>
             <h1 id="graph-values" class="fade-this"></h1>
@@ -38,10 +71,11 @@
             <p id="deg" class="fade-this">Degrees Celsius</p>
           </div>
 
+          <!-- A DESCRIPTION OF THEIR POLICY REGARDING CLIMATE CHANGE -->
           <div id="action-container">
             <h1 class="info-heading">2015 Climate Action<br>Yes We Can!</h1>
-            <p>A plan that shows New Zealand can take strong action on climate change now.<br><br><strong>We can be leaders</strong> and reach an ambitious emissions reduction target that New Zealanders can be proud of.<br><br>We can have a more prosperous New Zealand now, and leave a stable climate for the future.<br><br>This plan shows that with real leadership and a bit of Kiwi ingenuity, New Zealand can reduce our emissions by a respectable 40 percent.</p>
-            <a class="policy-link" target="_blank" href="https://www.greens.org.nz/sites/default/files/policy-pdfs/Yes%20We%20Can.pdf">See Our Plan</a>
+            <p>A plan that shows New Zealand can take strong action on climate change now.<br><br><i>We can be leaders</i> and reach an ambitious emissions reduction target that New Zealanders can be proud of.<br><br><i>We can have a more prosperous New Zealand now,</i> and leave a stable climate for the future.<br><br>This plan shows that with real leadership and a bit of Kiwi ingenuity, New Zealand can reduce our emissions by a respectable 40 percent.</p>
+            <a class="policy-link fade-this" target="_blank" href="https://www.greens.org.nz/sites/default/files/policy-pdfs/Yes%20We%20Can.pdf">See Our Plan</a>
           </div>
         </div>
       </div>
@@ -55,7 +89,7 @@
           <div class="james-media">
             <a href="https://twitter.com/jamespeshaw" target="_blank"><img class="media-link" src="img/twitterLogo.png" alt="James' Twitter"></a>
             <a href="https://www.facebook.com/JamesShawMP/" target="_blank"><img class="media-link"src="img/facebookLogo.png" alt="James' Facebook"></a>
-            <a href="https://www.instagram.com/jamesshawmp/" target="_blank"><img class="media-link instagram"src="img/instagramLogo.png" alt="James' Instagram"></a>
+            <a href="https://www.instagram.com/jamesshawmp/" target="_blank"><img class="media-link instagram" src="img/instagramLogo.png" alt="James' Instagram"></a>
           </div>
           <h2 class="james-heading">James' Story</h2><p class="james-text">Green Party Co-leader James Shaw strongly believes that New Zealand can lead the world in transitioning to a high-value, clean-tech, post-carbon economy that works for everyone.
           <br><br>He knows it’s a hugely ambitious, probably decades-long task, but it’s the reason he’s committed to a life in politics and one of the many reasons joined the Green Party in 1990.
@@ -75,6 +109,7 @@
         </div>
       </div>
 
+      <!-- AMY START -->
       <div id="contact" class="section-container fade-this">
 
         <div id="contactContainer">
@@ -104,10 +139,10 @@
       <div id="footer-outer" class="fade-this">
           <footer>
               <div class="footer-section">
-                <a class="footer-links home-link"href="#home">Home</a>
-                <a class="footer-links"href="#about">James Shaw</a>
-                <a class="footer-links"href="https://www.greens.org.nz/policy">Policy</a>
-                <a class="footer-links news"href="https://www.greens.org.nz/news">News</a>
+                <a class="footer-links home-link" href="#splash">Home</a>
+                <a class="footer-links" href="#about">James Shaw</a>
+                <a class="footer-links" href="https://www.greens.org.nz/policy">Policies</a>
+                <a class="footer-links news" href="https://www.greens.org.nz/news">News</a>
               </div>
               <div class="logo-section">
                 <a href="#home"><img src="img/logo.png" alt="Green Logo"></a>
