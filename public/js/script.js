@@ -171,7 +171,7 @@ function runGraph(){
 
   var color = d3.scaleLinear()
     .domain([0, averageClimate.length])
-    .range(["#0061FF", "#FF4300"])
+    .range(["#00DCE5", "#E14532"])
 
   // Vertical Bar
   var Graph = d3.select("#chart-container")
@@ -198,7 +198,7 @@ function runGraph(){
           if (mouseBar){
             barColor = this.style.fill;
             d3.select(this)
-              .style("opacity", 0.5)
+              .style("opacity", 0.9)
           }
         }).on("mouseout", function(data){
           d3.select(this).style("opacity", 1)
@@ -434,7 +434,6 @@ function initMap() {
     
     }
 
-    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
     var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
         this.setZoom(14);
         google.maps.event.removeListener(boundsListener);
