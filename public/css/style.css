@@ -411,7 +411,12 @@ div.instagram-icon {
   color: #00c760; }
 
 #offices .office-click {
-  background-color: #00c760; }
+  background-color: #00c760;
+  -webkit-transition: background 1s; }
+
+.office {
+  background: white;
+  -webkit-transition: background 1s; }
 
 #offices .office-click .title {
   color: white; }
@@ -452,5 +457,11 @@ footer {
   float: right;
   padding-top: 12px;
   margin-right: 30px; }
+
+.backToTop {
+  width: 50px;
+  margin-top: 12px;
+  float: right;
+  margin-right: 20px; }
 
 /*# sourceMappingURL=style.css.map */
