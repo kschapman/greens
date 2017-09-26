@@ -1,3 +1,4 @@
+// -------------------- MASSEY -----------------------
 module.exports = function(grunt){
 	grunt.initConfig({
 		cssmin:{
@@ -15,6 +16,25 @@ module.exports = function(grunt){
 			dist:{
 				files:{
 					"public/css/style.css":"public/sass/style.scss"
+				}
+			}
+		},
+		jshint:{
+			files:["*.js", "public/js/script.js"],
+			options:{
+				globals:{
+					jQuery:true
+				}
+			}
+		},
+		uglify:{
+			options:{
+				manage:false,
+				mangle:false
+			},
+			my_target:{
+				files:{
+					"public/js/script.min.js":["public/js/script.js"]
 				}
 			}
 		},
@@ -39,6 +59,5 @@ module.exports = function(grunt){
 	grunt.registerTask("default", ["cssmin"]);
 	grunt.registerTask("minjs", ["uglify"]);
 	grunt.registerTask("hint", ["jshint"]);
-	grunt.registerTask("scss", ["sass"]);
 	grunt.registerTask("w", ["watch"]);
 };
