@@ -306,8 +306,6 @@ body, html {
   float: none; }
 
 #twitter-feed {
-  height: 80vh;
-  overflow-y: scroll;
   float: none; }
 
 #contact {

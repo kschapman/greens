@@ -27,7 +27,7 @@ var T = new Twit({
 });
 
 app.get("/tweets.json", function(request, response) {
-  var params = { user_id: '31583101', count: 20 };
+  var params = { user_id: '31583101', count: 5 };
   T.get("statuses/user_timeline", params, function(err, twitterData, twitterResponse) {
     if (!err) {
       response.json(twitterData);
