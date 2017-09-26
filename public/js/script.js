@@ -114,8 +114,8 @@ function getInfo(startingYear, endingYear, climateData, increment){
 
 function sortGraphValues(data){
   data.sort(function compareNumbers(a,b){
-    return a["startingYear"] - b["startingYear"];
-  })
+    return a.startingYear - b.startingYear;
+  });
   return data;
 }
 
@@ -144,7 +144,7 @@ $(document).on('click', 'a[href^="#"]', function(e){
 function runGraph(){
   var barColor;
 
-  var margin = {top:30, right:30, bottom:30, left:30}
+  var margin = {top:30, right:30, bottom:30, left:30};
   var graphHeight = $("#chart-container").height();
   var graphWidth = $("#chart-container").width();
 
@@ -163,15 +163,15 @@ function runGraph(){
 
   var yScale = d3.scaleLinear()
     .domain([0, d3.max(averageClimate)])
-    .range([0, height])
+    .range([0, height]);
 
   var xScale = d3.scaleBand()
     .domain(d3.range(0, climateData.length))
-    .range([0, width])
+    .range([0, width]);
 
   var color = d3.scaleLinear()
     .domain([0, averageClimate.length])
-    .range(["#00DCE5", "#E14532"])
+    .range(["#00DCE5", "#E14532"]);
 
   // Vertical Bar
   var Graph = d3.select("#chart-container")
@@ -198,10 +198,10 @@ function runGraph(){
           if (mouseBar){
             barColor = this.style.fill;
             d3.select(this)
-              .style("opacity", 0.9)
+              .style("opacity", 0.9);
           }
         }).on("mouseout", function(data){
-          d3.select(this).style("opacity", 1)
+          d3.select(this).style("opacity", 1);
         }).on("click", function(data){
           if(mouseBar === true){
             $("#change-heading").text("Rising Temperatures in Aotearoa");
@@ -210,7 +210,7 @@ function runGraph(){
             $("#deg").fadeIn(1000);
             $(".fa-bar-chart").hide();
           }
-        })
+        });
 
   Graph.transition()
     .duration(1000)
@@ -223,36 +223,36 @@ function runGraph(){
     .ease(d3.easeElasticOut)
     .delay(function(data, i){
       return i * 300;
-    })
+    });
 
   // THIS IS THE VERTICAL AXIS FOR THE D3 GRAPH
   var VGuideScale = d3.scaleLinear()
     .domain([0, d3.max(averageClimate)])
-    .range([height, 0])
+    .range([height, 0]);
 
   var vAxis = d3.axisLeft(VGuideScale)
-    .ticks(Math.max.apply(Math, averageClimate))
+    .ticks(Math.max.apply(Math, averageClimate));
 
-  var vGuide = d3.select("svg").append("g")
-    vAxis(vGuide)
-    vGuide.attr("transform", "translate(" + margin.left + ", " + margin.top + ")")
+  var vGuide = d3.select("svg").append("g");
+    vAxis(vGuide);
+    vGuide.attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
     vGuide.select("path")
-      .style("stroke", "white")
+      .style("stroke", "white");
 
   var hAxis = d3.axisBottom(xScale)
-    .tickArguments(xScale.domain([1939, 1959, 1979, 1999, 2039, 2059, 2079, 2099]))
+    .tickArguments(xScale.domain([1939, 1959, 1979, 1999, 2039, 2059, 2079, 2099]));
 
-  var hGuide = d3.select("svg").append("g")
-    hAxis(hGuide)
-    hGuide.attr("transform", "translate(" + margin.left + ", " + (height + margin.top) + ")")
+  var hGuide = d3.select("svg").append("g");
+    hAxis(hGuide);
+    hGuide.attr("transform", "translate(" + margin.left + ", " + (height + margin.top) + ")");
     hGuide.select("path")
-      .style("stroke", "white")
+      .style("stroke", "white");
 
   var text = d3.selectAll("text")
-    .style("fill", "white")
+    .style("fill", "white");
 
   var ticks = d3.selectAll("path")
-    .style("fill", "white")
+    .style("fill", "white");
 }
 
 // ------------------- MASSEY ENDING HERE -------------------------
@@ -289,7 +289,7 @@ for (var i = 0; i < markers.length; i++) {
                 "<div class='title'>"+markers[i][5]+"</div>"+
                 "<div class='info'>"+markers[i][6]+"</div>"+
             "</div>"
-    )    
+    );
 }
 
 function initMap() {

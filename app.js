@@ -6,7 +6,7 @@ var cors = require("cors");
 var app = express();
 
 app.use(function(request, response, next){
-	console.log(`${request.method} request for ${request.url}`);
+	console.log(request.method + " request for" + request.url);
 	next();
 });
 
