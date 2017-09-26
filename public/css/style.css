@@ -150,10 +150,11 @@ body, html {
 #home {
   background-color: #00c760;
   height: 800px; }
-  #home h3 {
+  #home h2 {
     width: 100%;
     text-align: center;
-    color: white; }
+    color: white;
+    font-weight: 300; }
   #home #chart-container {
     position: absolute;
     height: 75%;
@@ -165,7 +166,7 @@ body, html {
       cursor: pointer; }
   #home #horizontal-axis {
     position: absolute;
-    bottom: 100px;
+    bottom: 90px;
     width: 70%;
     text-align: center;
     color: white; }
@@ -181,7 +182,8 @@ body, html {
     right: 0px;
     margin: 15px;
     width: 28%;
-    height: 87%; }
+    height: 87%;
+    top: 40px; }
     #home #chart-info .info-heading {
       font-size: 18px;
       text-align: center;
@@ -198,18 +200,11 @@ body, html {
       padding-top: 20px;
       padding-bottom: 20px; }
       #home #chart-info #value-container #graph-values {
-        display: none;
         margin-top: 2%;
         width: 100%;
         color: #333;
         font-size: 50px;
         font-weight: 300;
-        text-align: center; }
-      #home #chart-info #value-container .fa {
-        font-size: 50px;
-        color: #333;
-        width: 100%;
-        margin-top: 10px;
         text-align: center; }
       #home #chart-info #value-container #deg {
         display: none;
@@ -247,7 +242,7 @@ body, html {
   background-color: white;
   margin-top: 50px;
   background-color: white;
-  margin-top: 50px; }
+  margin-bottom: -50px; }
 
 .james-info {
   float: left;
