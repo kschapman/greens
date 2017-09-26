@@ -212,7 +212,7 @@ body, html{
 
 #home{
 	background-color:$green;
-	height:800px;
+	height:1020px;
 
 	h2{
 		width:100%;
@@ -223,7 +223,7 @@ body, html{
 
 	#chart-container{
 		position:absolute;
-		height:75%;
+		height:68%;
 		width:66.6%;
 		margin:15px;
 		margin-left:30px;
@@ -236,7 +236,7 @@ body, html{
 
 	#horizontal-axis{
 		position:absolute;
-		bottom:90px;
+		bottom:220px;
 		width:70%;
 		text-align:center;
 		color:white;
@@ -247,7 +247,21 @@ body, html{
 		top:50%;
 		transform:rotate(270deg);
 		color:white;
-		left:-90px;
+		left:-125px;
+	}
+
+	#graph-context{
+		border-radius:5px;
+		padding:15px;
+		background-color:white;
+		bottom:20px;
+		position:absolute;
+		width:90%;
+		margin-left:50px;
+
+		h3{
+			color:$green;
+		}
 	}
 
 	#chart-info{
@@ -256,7 +270,7 @@ body, html{
 		right:$null;
 		margin:15px;
 		width:28%;
-		height:87%;
+		height:73%;
 		top:40px;
 
 		.info-heading{
@@ -298,6 +312,7 @@ body, html{
 
 		#action-container{
 			box-sizing:border-box;
+			border-radius:5px;
 			padding:20px 15px;
 			width:90%;
 			margin:5px 5%;
