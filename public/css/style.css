@@ -222,6 +222,8 @@ body, html {
       overflow-y: scroll; }
       #home #chart-info #action-container h1 {
         color: #00c760; }
+      #home #chart-info #action-container a:hover {
+        color: #00c760; }
       #home #chart-info #action-container p {
         margin: 5px 0px; }
       #home #chart-info #action-container i {

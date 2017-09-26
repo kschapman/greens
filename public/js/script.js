@@ -29,6 +29,7 @@ $(".present").click(function(){
 
   if (setPresentation){
     $(".fade-this").delay(1000).fadeIn(1000);
+    $("#presentation")[0].title = "Presentation Mode";
 
     $("#presentation").removeClass("fa-lock");
     $("#presentation").addClass("fa-television");
@@ -41,6 +42,7 @@ $(".present").click(function(){
     var actionHeight = $("#action-container").height(); 
     var actionMarginTop = $("#value-container").height() + 2;
     $(".fade-this").delay(1000).fadeOut(1000);
+    $("#presentation")[0].title = "Unlock Website";
 
     $("#presentation").removeClass("fa-television");
     $("#presentation").addClass("fa-lock");
