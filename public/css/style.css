@@ -149,7 +149,11 @@ body, html {
 
 #home {
   background-color: #00c760;
+<<<<<<< HEAD
   height: 800px; }
+=======
+  height: 1020px; }
+>>>>>>> master
   #home h2 {
     width: 100%;
     text-align: center;
@@ -157,7 +161,7 @@ body, html {
     font-weight: 300; }
   #home #chart-container {
     position: absolute;
-    height: 75%;
+    height: 68%;
     width: 66.6%;
     margin: 15px;
     margin-left: 30px;
@@ -166,7 +170,11 @@ body, html {
       cursor: pointer; }
   #home #horizontal-axis {
     position: absolute;
+<<<<<<< HEAD
     bottom: 90px;
+=======
+    bottom: 220px;
+>>>>>>> master
     width: 70%;
     text-align: center;
     color: white; }
@@ -175,14 +183,28 @@ body, html {
     top: 50%;
     transform: rotate(270deg);
     color: white;
-    left: -90px; }
+    left: -125px; }
+  #home #graph-context {
+    border-radius: 5px;
+    padding: 15px;
+    background-color: white;
+    bottom: 20px;
+    position: absolute;
+    width: 90%;
+    margin-left: 50px; }
+    #home #graph-context h3 {
+      color: #00c760; }
   #home #chart-info {
     position: absolute;
     float: right;
     right: 0px;
     margin: 15px;
     width: 28%;
+<<<<<<< HEAD
     height: 87%;
+=======
+    height: 73%;
+>>>>>>> master
     top: 40px; }
     #home #chart-info .info-heading {
       font-size: 18px;
@@ -214,6 +236,7 @@ body, html {
         text-align: center; }
     #home #chart-info #action-container {
       box-sizing: border-box;
+      border-radius: 5px;
       padding: 20px 15px;
       width: 90%;
       margin: 5px 5%;
