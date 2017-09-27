@@ -4,13 +4,16 @@
     <title>Green Party of Aotearoa New Zealand</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- EXTRA META DATA TO HELP WITH SEARCH ENGINES -->
     <meta name="keywords" content="Green Party, Elections, 2017, James Shaw, Greens, New Zealand, 100% Pure">
     <meta name="author" content="Kenneth Chapman, Amy Soden, Massey Isa'ako">
     <meta name="description" content="Let's change New Zealand for the better!">
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="shortcut icon" href=img//favicon.ico type="image/vnd.microsoft.icon">
+
+    <!-- FONT AWESOME STYLESHEET -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
   </head>
 
   <body>
@@ -21,21 +24,30 @@
         <i class="fa fa-spinner fa-spin fa-pulse fa-3x fa-fw"></i>
       </div>
 
+      <!-- NAVIGATION BAR -->
       <div id="nav">
+
+        <!-- LOGO -->
         <a href="#splash"><div id="logo-container"></div></a>
+
+        <!-- PRESENTATION MODE IS ACTIVATED HERE ON CLICK -->
         <div class="present"><i id="presentation" class="fa fa-television" aria-hidden="true" title="Presentation Mode"></i></div>
+
+        <!-- NORMAL NAV LINKS TO SECTIONS OF THE WEBSITE -->
         <a href="#contact" class="btn fade-this">Contact</a>
         <a href="#about" class="btn fade-this">About</a>
         <a href="#home" class="btn fade-this">Stats</a>
       </div>
 
-      <div id="splash" class="section-container fade-this">
+      <!-- AN DIV THAT CONTAINS AN IMAGE OF GREEN PARTY MEMBERS -->
+      <div id="splash" class="section-container fade-this" title="The Green Party Members">
         <div id="site-purpose">
           <h1>Green Party</h1>
           <h3>New Zealand can lead the world in transitioning to a high-value, clean-tech, post-carbon economy that works for everyone.</h3>
         </div>
       </div>
 
+      <!-- THIS DIV HOLDS CONTENT THAT DISPLAYS THE WEBSITES PURPOSE AS WELL AS THE PARTY'S STANCE REGARDING CLIMATE CHANGE -->
       <div id="spiel" class="section-container fade-this">
         <h1>Our climate plan will protect the things that are #WorthSaving.</h1>
         <h3>Climate change threatens the things we care about, and those things are #WorthSaving. The Green Party have a strong and ambitious plan that would make New Zealand carbon-free by the time today’s children are starting their own families. Once in government, the Greens would:</h3>
@@ -57,8 +69,13 @@
           <h2>Estimated Average New Zealand Temperature</h2>
         </div>
 
+        <!-- YAXIS LABEL -->
         <p id="vertical-axis">Average Temperature in Degress Celsius</p>
+
+        <!-- XAXIS LABEL -->
         <p id="horizontal-axis">End Year of Double Decade Period</p>
+
+        <!-- GIVING CONTEXT TO THE GRAPH, WITH EXPLANATION AND EXAMPLE -->
         <div id="graph-context">
           <h3>About the Graph</h3>
           <p>The above graph shows the estimated average temperature in New Zealand within a double decade period. The year displayed along the horizontal axis is the ending year of the double decade time period. For example, the double decade time period ending 1939 (starting in 1920) had an average temperature of 11.72 Degrees Celsius.<br><br>Climate change is real and we need to take some steps to stop it from further affecting our tangata and our whenua. We need to act now, change our approach to climate change nd strive to make a positive difference in the world.</p>
@@ -78,6 +95,8 @@
           <div id="action-container">
             <h1 class="info-heading"><a target="_blank" href="https://www.greens.org.nz/sites/default/files/policy-pdfs/Yes%20We%20Can.pdf">2015 Climate Action<br>Yes We Can!</a></h1>
             <p>A plan that shows New Zealand can take strong action on climate change now.<br><br><i>We can be leaders</i> and reach an ambitious emissions reduction target that New Zealanders can be proud of.<br><br><i>We can have a more prosperous New Zealand now,</i> and leave a stable climate for the future.<br><br>This plan shows that with real leadership and a bit of Kiwi ingenuity, New Zealand can reduce our emissions by a respectable 40 percent.</p>
+
+            <!-- LINK TO THEIR CLIMATE CHANGE PLAN -->
             <a class="policy-link fade-this" target="_blank" href="https://www.greens.org.nz/sites/default/files/policy-pdfs/Yes%20We%20Can.pdf">See Our Plan</a>
           </div>
         </div>
@@ -161,7 +180,7 @@
   <script type="text/javascript" src="js/d3/d3.min.js"></script>
   <script type="text/javascript" src="jquery/jquery.min.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdS20mL_WMfgtBbCX19OP1m9j7CNhJJd4&callback=initMap"></script>
-  <script type="text/javascript" src="js/script.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
   </body>
 
 </html>
