@@ -173,7 +173,9 @@ function runGraph(){
 
   var color = d3.scaleLinear()
     .domain([0, averageClimate.length])
-    .range(["#00DCE5", "#E14532"]);
+    .range(["#999999", "#FFFFFF"]);
+    // PURPLE COMBO: "#A65DEF", "#E14532"
+    // BLUE: "#00DCE5", "#E14532"
 
   // Vertical Bar
   var Graph = d3.select("#chart-container")
@@ -200,10 +202,12 @@ function runGraph(){
           if (mouseBar){
             barColor = this.style.fill;
             d3.select(this)
-              .style("opacity", 0.9);
+              .style("fill", "rgba(15, 51, 44, 0.4)");
           }
         }).on("mouseout", function(data){
-          d3.select(this).style("opacity", 1);
+          if (mouseBar){
+            d3.select(this).style("fill", barColor);
+          }
         }).on("click", function(data){
           if(mouseBar === true){
             $("#change-heading").text("Rising Temperatures in Aotearoa");
